@@ -1,10 +1,10 @@
 import { Header } from "./components/Header";
-import { Post } from "./Post";
+import { Sidebar } from "./components/Sidebar";
+import { Post } from "./components/Post";
 
 import styles from "./App.module.css";
 
 import './global.css';
-import { Sidebar } from "./components/Sidebar";
 
 function App() {
   return (
@@ -13,14 +13,7 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author='Philipe'
-            content='Lorem ipsum dolor sit amet consectetur adipisicing elit'
-          />
-          <Post
-            author='Gabriel'
-            content='Lorem ipsum dolor sit amet consectetur adipisicing elit'
-          />
+          <Post />
         </main>
 
       </div>

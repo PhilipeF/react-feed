@@ -1,6 +1,7 @@
 import { PencilLine } from "@phosphor-icons/react";
 
 import styles from './Sidebar.module.css';
+
 import evolution from '../assets/evolution.jpeg';
 
 export function Sidebar() {
