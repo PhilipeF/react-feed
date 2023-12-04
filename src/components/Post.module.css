@@ -35,7 +35,7 @@
 
 }
 
-.post img {
+.author > img {
     box-sizing: initial;
     width: 3.75rem;
     height: 3.75rem;
