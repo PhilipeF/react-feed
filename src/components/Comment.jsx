@@ -7,7 +7,7 @@ import { Trash } from "@phosphor-icons/react/dist/ssr";
 export function Comment() {
     return (
         <div className={styles.comment}>
-            <Avatar src="https://github.com/pamellafernandes.png" />
+            <Avatar hasBorder={false} src="https://github.com/pamellafernandes.png" />
             <div className={styles.commentBox}>
                 <div className={styles.commentContent}>
                     <header>

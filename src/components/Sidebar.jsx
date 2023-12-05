@@ -9,7 +9,7 @@ export function Sidebar() {
         <aside className={styles.sidebar}>
             <img className={styles.cover} src={evolution} alt="" />
             <div className={styles.profile}>
-                <Avatar src="https://github.com/PhilipeF.png" />
+                <Avatar hasBorder src="https://github.com/PhilipeF.png" />
 
                 <strong>Philipe Ferreira</strong>
                 <span>Web Developer</span>
