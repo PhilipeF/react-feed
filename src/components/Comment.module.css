@@ -76,12 +76,6 @@
     color: var(--red-500);
 }
 
-/* .authorAndTime {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-} */
-
 .authorAndTime strong {
     display: block;
     font-size: 0.875rem;
