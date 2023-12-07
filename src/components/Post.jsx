@@ -5,8 +5,22 @@ import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from "date-fns/locale/pt-BR";
 
 import styles from "./Post.module.css";
+import { useState } from "react";
 
 export function Post({ author, publisheAt, content }) {
+
+    // usamos o useState toda vez que queremos q um componente monitore e comportamento de uma variável
+
+    const [comments, setComments] = useState([
+        1,
+        2
+    ])
+
+    function handleCreateNewComment() {
+        event.preventDefault()
+
+        setComments([...comments, comments.length + 1])
+    }
 
     const publisheDateFormatad = format(publisheAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR
@@ -41,7 +55,7 @@ export function Post({ author, publisheAt, content }) {
                     }
                 })}
             </div >
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe o seu feedback</strong>
                 <textarea />
                 <footer>
@@ -49,9 +63,11 @@ export function Post({ author, publisheAt, content }) {
                 </footer>
             </form>
             <div className={styles.commetList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map(coment => {
+                    return <Comment />
+
+                })}
+
             </div>
         </article >
     )
