@@ -9,22 +9,29 @@ import { useState } from "react";
 
 export function Post({ author, publisheAt, content }) {
 
-    // usamos o useState toda vez que queremos q um componente monitore e comportamento de uma variável
-
     const [comments, setComments] = useState([
-        1,
-        2
+        'Texto muito bacana heim 👏👏'
     ])
 
-    function handleCreateNewComment() {
-        event.preventDefault()
-
-        setComments([...comments, comments.length + 1])
-    }
+    const [newCommentText, setNewComentText] = useState('')
 
     const publisheDateFormatad = format(publisheAt, "d 'de' LLLL 'às' HH:mm'h'", {
         locale: ptBR
     })
+
+    function handleCreateNewComment() {
+        event.preventDefault()
+
+        setComments([...comments, newCommentText])
+
+        setNewComentText('')
+
+    }
+
+    function handleNewCommentChange() {
+        setNewComentText(event.target.value)
+    }
+
 
     const publishedDateRelativeToNow = formatDistanceToNow(publisheAt, {
         locale: ptBR,
@@ -57,17 +64,20 @@ export function Post({ author, publisheAt, content }) {
             </div >
             <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe o seu feedback</strong>
-                <textarea />
+                <textarea
+                    name="content"
+                    placeholder="Deixe um comentário"
+                    value={newCommentText}
+                    onChange={handleNewCommentChange}
+                />
                 <footer>
                     <button type="submit">Publicar</button>
                 </footer>
             </form>
             <div className={styles.commetList}>
-                {comments.map(coment => {
-                    return <Comment />
-
+                {comments.map(comment => {
+                    return <Comment content={comment} />
                 })}
-
             </div>
         </article >
     )
