@@ -21,6 +21,20 @@ const posts = [
     ],
     publisheAt: new Date('Wed Dec 06 2023 11:35:48'),
   },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/philipeF.png",
+      name: "Philipe Ferreira",
+      role: "Dev Full Stack"
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galeraa 👋' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portfolio. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀 ' },
+      { type: 'link', content: 'jane.design/doctorcare' }
+    ],
+    publisheAt: new Date('Wed Dec 06 2023 11:35:48'),
+  },
 ]
 
 function App() {
@@ -31,7 +45,13 @@ function App() {
         <Sidebar />
         <main>
           {posts.map(post => {
-            return <Post/>
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publisheAt={post.publisheAt}
+              />
+            )
           })}
         </main>
       </div>
