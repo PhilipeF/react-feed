@@ -19,6 +19,11 @@ export function Post({ author, publisheAt, content }) {
         locale: ptBR
     })
 
+    const publishedDateRelativeToNow = formatDistanceToNow(publisheAt, {
+        locale: ptBR,
+        addSuffix: true
+    })
+
     function handleCreateNewComment() {
         event.preventDefault()
 
@@ -31,11 +36,12 @@ export function Post({ author, publisheAt, content }) {
         setNewComentText(event.target.value)
     }
 
-    const publishedDateRelativeToNow = formatDistanceToNow(publisheAt, {
-        locale: ptBR,
-        addSuffix: true
-    })
-
+    function onDeleteComment(commentDelete) {
+        const deleteComment = comments.filter(comment => {
+            return comment !== commentDelete
+        })
+        setComments(deleteComment)
+    }
     return (
         <article className={styles.post}>
             <header>
@@ -74,7 +80,11 @@ export function Post({ author, publisheAt, content }) {
             </form>
             <div className={styles.commetList}>
                 {comments.map(comment => {
-                    return <Comment key={comment} content={comment} />
+                    return <Comment
+                        key={comment}
+                        content={comment}
+                        deleteComment={onDeleteComment}
+                    />
                 })}
             </div>
         </article >
