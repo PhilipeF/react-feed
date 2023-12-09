@@ -33,7 +33,12 @@ export function Post({ author, publisheAt, content }) {
     }
 
     function handleNewCommentChange() {
+        event.target.setCustomValidity('');
         setNewComentText(event.target.value)
+    }
+
+    function handleNewCommentInvalid() {
+        event.target.setCustomValidity('Este campo é obrigatório');
     }
 
     function onDeleteComment(commentDelete) {
@@ -73,9 +78,16 @@ export function Post({ author, publisheAt, content }) {
                     placeholder="Deixe um comentário"
                     value={newCommentText}
                     onChange={handleNewCommentChange}
+                    onInvalid={handleNewCommentInvalid}
+                    required
                 />
                 <footer>
-                    <button type="submit">Publicar</button>
+                    <button
+                        type="submit"
+                        disabled={newCommentText.length === 0}
+                    >
+                        Publicar
+                    </button>
                 </footer>
             </form>
             <div className={styles.commetList}>
