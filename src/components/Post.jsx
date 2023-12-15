@@ -1,11 +1,11 @@
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
-
 import { format, formatDistanceToNow } from 'date-fns';
 import ptBR from "date-fns/locale/pt-BR";
 
-import styles from "./Post.module.css";
 import { useState } from "react";
+
+import styles from "./Post.module.css";
 
 export function Post({ author, publisheAt, content }) {
 

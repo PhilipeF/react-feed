@@ -1,10 +1,10 @@
 import { Avatar } from "./Avatar";
-import styles from "./Comment.module.css";
-
 import { ThumbsUp } from "@phosphor-icons/react";
 import { Trash } from "@phosphor-icons/react/dist/ssr";
 
-export function Comment({ content, deleteComment }) {
+import styles from "./Comment.module.css";
+
+export function Comment({ content, deleteComment }) {   
 
     function handleDeleteComment() {
         deleteComment(content)
@@ -19,7 +19,6 @@ export function Comment({ content, deleteComment }) {
                         <div className={styles.authorAndTime}>
                             <strong>Philipe Ferreira</strong>
                             <time className={styles.time} title="02 de Dezembro às 16:45" dateTime="2023-12-02 08:13:30">
-                                Cerca de 1h atŕas
                             </time>
                         </div>
 
